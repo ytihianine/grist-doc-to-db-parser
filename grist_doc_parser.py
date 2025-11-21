@@ -127,3 +127,7 @@ def generate_dbml_file(output_path: str, df: pd.DataFrame) -> None:
         for key, values in dbml.items():
             dbml_file.write("".join(values))
             dbml_file.write("\n}\n\n")
+
+
+def export_to_csv(path: str, df: pd.DataFrame, sep: str = ";") -> None:
+    df.to_csv(path_or_buf=path, sep=sep)

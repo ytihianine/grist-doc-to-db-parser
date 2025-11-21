@@ -2,7 +2,7 @@ import sqlite3
 import pandas as pd
 
 from grist_doc_parser import (
-    process_tbl_info, process_col_info, process_dbml, generate_dbml_file
+    export_to_csv, process_tbl_info, process_col_info, process_dbml, generate_dbml_file
 )
 
 # Grist table names which contains our informations
@@ -13,6 +13,8 @@ if __name__ == "__main__":
     # Set those values
     grist_doc_path = ""
     dbml_output_path = ""
+    export = False
+    csv_output_path = ""
 
     # Start
     db_conn = sqlite3.connect(grist_doc_path)
@@ -35,6 +37,10 @@ if __name__ == "__main__":
     print("Generating DBML file")
     df_dbml = process_dbml(df_tbl=df_tbl, df_col=df_cols)
     print(df_dbml.head())
+
+    # (Optional) Export dataframe to csv format
+    if export:
+        export_to_csv(path=csv_output_path, df=df_dbml)
 
     # Export to dbml format
     generate_dbml_file(output_path=dbml_output_path, df=df_dbml)
