@@ -23,14 +23,14 @@ if __name__ == "__main__":
     print("Processing table information")
     df_tbl = pd.read_sql(f"SELECT * FROM {GRIST_TBL_INFO}", con=db_conn)
     print("Nb lignes avant processing: ", len(df_tbl))
-    df_tbl = process_tbl_info(df=df_tbl)
+    df_tbl = process_tbl_info(df=df_tbl, lower_tbl_name=True)
     print("Nb lignes après processing: ", len(df_tbl))
 
     # Process columns information
     print("Processing columns information")
     df_cols = pd.read_sql(f"SELECT * FROM {GRIST_COL_INFO}", con=db_conn)
     print("Nb lignes avant processing: ", len(df_cols))
-    df_cols = process_col_info(df=df_cols)
+    df_cols = process_col_info(df=df_cols, lower_col_name=True)
     print("Nb lignes après processing: ", len(df_cols))
 
     # Prepare last df before formating

@@ -80,19 +80,24 @@ def convert_grist_type(df: pd.DataFrame, column: str = "type_grist") -> pd.DataF
     return df
 
 
-def process_tbl_info(df: pd.DataFrame) -> pd.DataFrame:
+def process_tbl_info(df: pd.DataFrame, lower_tbl_name: bool = False) -> pd.DataFrame:
     cols_to_keep = ["id", "tableId"]
     df = df.loc[:, cols_to_keep].copy()
     df = remove_grist_tbl(df=df, column="tableId")
+    if lower_tbl_name:
+        df["tableId"] = df.loc[:, "tableId"].str.lower()
     return df
 
 
-def process_col_info(df: pd.DataFrame) -> pd.DataFrame:
+def process_col_info(df: pd.DataFrame, lower_col_name: bool = False) -> pd.DataFrame:
     cols_to_keep = ["id", "parentId", "colId", "type", "description"]
     df = df.loc[:, cols_to_keep].copy()
     df = remove_grist_col(df=df, column="colId")
     df = process_type_col(df=df)
     df = convert_grist_type(df=df)
+    if lower_col_name:
+        df["colId"] = df.loc[:, "colId"].str.lower()
+        df["type_grist_tbl_name"] = df.loc[:, "type_grist_tbl_name"].str.lower()
     return df
 
 
