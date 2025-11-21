@@ -1,0 +1,4 @@
+*.grist
+*.sqlite
+*.db
+*.sql
