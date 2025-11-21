@@ -3,3 +3,4 @@
 *.db
 *.sql
 *.csv
+__pycache__
