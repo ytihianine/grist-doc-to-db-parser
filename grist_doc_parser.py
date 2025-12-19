@@ -124,7 +124,7 @@ def generate_dbml_file(output_path: str, df: pd.DataFrame) -> None:
 
     for row in df.itertuples():
         if row.type_grist in [GristType.REFERENCE.value, GristType.REFERENCELIST.value]: # type: ignore
-            dbml[row.tableId].append(f"\n\t{row.colId} {row.type_dbml} [ref: > {row.type_grist_tbl_name}.id]")  # type: ignore
+            dbml[row.tableId].append(f"\n\tid_{row.colId} {row.type_dbml} [ref: > {row.type_grist_tbl_name}.id]")  # type: ignore
         else:
             dbml[row.tableId].append(f"\n\t{row.colId} {row.type_dbml}")  # type: ignore
 
