@@ -10,7 +10,7 @@
 
 default = [
     "pandas==3.0.5",
-    "numpy==2.5.2"
+    "numpy==2.5.3"
 ]
 
 
