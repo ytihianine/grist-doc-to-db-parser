@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.2](https://github.com/ytihianine/grist-doc-to-dbml/compare/v0.3.1...v0.3.2) (2026-09-08)
+
+
+### Others
+
+* **deps:** update dependency numpy to v2.5.3 ([#23](https://github.com/ytihianine/grist-doc-to-dbml/issues/23)) ([c76aaea](https://github.com/ytihianine/grist-doc-to-dbml/commit/c76aaeaf2abdae54d4be22c93b460237dbc8424f))
+
 ## [0.3.1](https://github.com/ytihianine/grist-doc-to-dbml/compare/v0.3.0...v0.3.1) (2026-08-19)
 
 
